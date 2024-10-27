@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Ended</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #111;
+            color: #fff;
+            font-family: 'Press Start 2P', sans-serif;
+            overflow: hidden;
+        }
+        .end-message {
+            text-align: center;
+            font-size: 4vw;
+            animation: pulsate 1.5s ease-in-out infinite;
+        }
+        .play-again {
+            position: absolute;
+            font-family: 'Press Start 2P', sans-serif;
+            bottom: 30%;
+            padding: 20px;
+            font-size: 3vw;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 1;
+        }
+        .play-again:hover {
+            background-color: #65e3a2;
+        }
+        @keyframes pulsate {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="end-message">Demo Ended! Thanks for Playing!</div>
+    <button class="play-again" onclick="playAgain()">Play Again</button>
+
+    <!-- Confetti Script -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <script>
+        function launchConfetti() {
+            confetti({
+                particleCount: 200,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
+        setInterval(launchConfetti, 1000); // Launch confetti every second
+
+        function playAgain() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
